@@ -77,8 +77,8 @@ public class Product {
     }
 
     // METODO PER AVERE IL PREZZO BASE
-    public String priceBase(){
-        return "Il prezzo base è: " + price;
+    public double priceBase(){
+        return price;
     }
 
     // METODO PER AVERE UN PREZZO COMPRESIVO DI IVA

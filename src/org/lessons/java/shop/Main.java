@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Category category = new Category("Penna Stilografica", "Inchiostro fluido che rende la scrittura semplice e scorrevole");
         Product product = new Product("Penna", "Colore rosso", 3d, 22d, category);
-        Category category = new Category("Penna", "Penna Stilografica");
-
 
         System.out.println("Full name: " + product.getFullName());
         System.out.println("Price without iva: " + product.priceBase() + "€");
@@ -17,6 +16,5 @@ public class Main {
         System.out.println("Category description: " + product.getProdCategory().getDescription());
 
 
+    }
 }
-
-
