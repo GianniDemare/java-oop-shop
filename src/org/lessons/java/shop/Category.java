@@ -1,13 +1,13 @@
 package org.lessons.java.shop;
 
-public class Categoria {
+public class Category {
     // ATTRIBUTI
     private String name;
     private String description;
 
     // COSTRUTTORI
 
-    public Categoria(String name, String description) {
+    public Category(String name, String description) {
         this.name = name;
         this.description = description;
     }
