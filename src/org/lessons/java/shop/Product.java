@@ -9,15 +9,17 @@ public class Product {
     private String description;
     private double price;
     private double vat;
+    private Category prodCategory;
 
     // COSTRUTTORI
 
-    public Product(String name, String description, double price, double vat) {
+    public Product(String name, String description, double price, double vat, Category prodCategory) {
         this.code = generateNumberRandom(1, 1000);
         this.name = name;
         this.description = description;
         this.price = price;
         this.vat = vat;
+        this.prodCategory = prodCategory;
     }
 
 
@@ -59,6 +61,13 @@ public class Product {
         this.vat= vat;
     }
 
+    public Category getProdCategory() {
+        return prodCategory;
+    }
+
+    public void setProdCategory(Category prodCategory) {
+        this.prodCategory = prodCategory;
+    }
 
     // METODI
 

@@ -16,24 +16,26 @@ public class Category {
     // GETTER E SETTER
 
     public String getName() {
+
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public String getDescription() {
-        return description;
+
+         return description;
     }
 
     public void setDescription(String description) {
+
         this.description = description;
     }
 
 
     // METODI
-    public String toString(){
-        return name + " " + description;
-    }
+
 }
