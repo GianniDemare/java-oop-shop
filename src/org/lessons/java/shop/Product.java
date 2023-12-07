@@ -14,6 +14,22 @@ public class Product {
     // COSTRUTTORI
 
     public Product(String name, String description, double price, double vat, Category prodCategory) {
+
+        // Controllo per il nome del prodotto
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("il nome del prodotto non può essere nullo o vuoto!");
+        }
+
+        // Controllo per il prezzo del prodotto
+        if (price < 0) {
+            throw new IllegalArgumentException("il prezzo del prodotto non può essere negativo!");
+        }
+
+        // Controllo per l'aliquota IVA
+        if (vat < 0) {
+            throw new IllegalArgumentException("l'IVA deve essere maggiore di 0!");
+        }
+
         this.code = generateNumberRandom(1, 1000);
         this.name = name;
         this.description = description;
@@ -49,7 +65,7 @@ public class Product {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -57,8 +73,8 @@ public class Product {
         return vat;
     }
 
-    public void setIva(int vat) {
-        this.vat= vat;
+    public void setIva(double vat) {
+        this.vat = vat;
     }
 
     public Category getProdCategory() {
@@ -73,20 +89,35 @@ public class Product {
 
     // METODO PER GENERARE UN NUMERO RANDOM PER IL CODICE
     private int generateNumberRandom(int min, int max) {
+
         return min + (int) (Math.random() * ((max - min) + 1));
     }
 
-    // METODO PER AVERE IL PREZZO BASE
-    public double priceBase(){
-        return price;
+    // METODO PER AVERE IL PREZZO BASE + CONTROLLO CHE NON SIA STATO INSERITO UN PREZZO NEGATIVO
+    public double priceBase() {
+        if (price >= 0) {
+            return price;
+        } else {
+            // Se il prezzo è negativo, stampa un messaggio di errore
+            System.err.println("Errore: Il prezzo base del prodotto non può essere negativo.");
+            return 0;
+        }
     }
 
     // METODO PER AVERE UN PREZZO COMPRESIVO DI IVA
     public double calculatePriceWithVat(){
-        return (price * vat) / 100 + price;
+        if (vat >= 0){
+            return (price * vat) / 100 + price;
+        } else {
+            // Se l'IVA è negativa, stampa un messaggio di errore
+            System.err.println("Errore: L'IVA non può essere negativa.");
+            return 0;
+        }
     }
+
     // METODO PER AVERE IL NOME ESTESO CONCATENANDO CODICE E NOME
     public String getFullName(){
+
         return code + "-" + name;
     }
 
