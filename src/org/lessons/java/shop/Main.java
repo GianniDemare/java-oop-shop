@@ -16,7 +16,7 @@ public class Main {
             System.out.println("Product category information:");
             System.out.println("Category name: " + product.getProdCategory().getName());
             System.out.println("Category description: " + product.getProdCategory().getDescription());
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Attenzione c'è un errore, " + e.getMessage());
         }
     }
